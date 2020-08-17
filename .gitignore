@@ -1,0 +1,7 @@
+
+django_webapp/.env
+django_webapp/.idea/*
+.idea/*
+django_webapp/__pycache__/*
+django_webapp/django_webapp/__pycache__/*
+django_webapp/webapp/__pycache__/*

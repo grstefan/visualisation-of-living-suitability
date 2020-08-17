@@ -1,0 +1,73 @@
+{% load static from staticfiles %}
+<html>
+<head>
+    <meta charset='utf-8'/>
+    <title>Show and hide layers</title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no'/>
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.50.0/mapbox-gl.js'></script>
+    {#    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.50.0/mapbox-gl.css' rel='stylesheet' />#}
+
+    <link rel="stylesheet" href="{% static 'css/filter.css' %}">
+    <link rel="stylesheet" href="{% static 'css/menu_style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/legend_style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/switch.css' %}">
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        #map {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+
+<nav id="menu"></nav>
+<div id="map"></div>
+<div class='map-overlay' id='features'><h2>Boston population</h2>
+    <div id='pd'><p>Hover over a Boston!</p></div>
+</div>
+<div class='map-overlay' id='legend'></div>
+{#<nav id='filter-group' class='filter-group'></nav>#}
+<nav id="filter-group" class="filter-group">
+    <input type="checkbox" id="poi-population">
+    <label for="poi-population">Pop. density</label>
+    <input type="checkbox" id="poi-crime" checked>
+    <label for="poi-crime">Crime</label>
+    <input type="checkbox" id="poi-park">
+    <label for="poi-park">Parks</label>
+    <input type="checkbox" id="poi-school">
+    <label for="poi-school">Schools</label>
+    <input type="checkbox" id="poi-church">
+    <label for="poi-church">Churches</label>
+    <input type="checkbox" id="poi-restaurant">
+    <label for="poi-restaurant">Restaurants</label>
+    <input type="button" id="generator">
+    <label for="poi-music" onclick="myFunction()">Generate</label>
+</nav>
+<div class="flipswitch">
+    <input type="checkbox" name="flipswitch" class="flipswitch-cb" onclick="onClickHandler()" id="fs" checked>
+    <label class="flipswitch-label" for="fs">
+        <div class="flipswitch-inner"></div>
+        <div class="flipswitch-switch"></div>
+    </label>
+</div>
+</body>
+
+{% block admin_change_form_document_ready %}
+    <script type="text/javascript" src="{% static 'js/map_load.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/menu.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/legend.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/filter.js' %}"></script>
+
+
+
+{% endblock %}
+</html>
