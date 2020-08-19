@@ -41,13 +41,13 @@
   box-sizing: border-box;
 }
 .flipswitch-inner:before {
-  content: "Safety";
+  content: "Safe";
   padding-left: 12px;
   background-color: #256799;
   color: #FFFFFF;
 }
 .flipswitch-inner:after {
-  content: "Not-safety";
+  content: "Not-safe";
   padding-right: 1px;
   font-size: 14px;
 
